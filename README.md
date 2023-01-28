@@ -11,7 +11,7 @@
   
 # Startup Deliverable - Specification Assignment
 ## Pitch
-  Did you ever want to play Connect 4 online? This is the way! With color customization and win/loss tracking, you can make it your own game. Play with a computer or go online to compete with other players. With every win, you can jump up the leaderboards and claim the crown. 
+  Did you ever want to play Connect 4 online? This is the way! With color customization and win/loss tracking, you can make it your own game. Play with a computer or go online to compete with other players. With every win, you can jump up the leaderboards and claim the crown! 
 ## Key Features
   Play against computers or players
   
