@@ -29,3 +29,10 @@ In addition to the previous git notations, "git add <file>" must be done first.
 During Simon, I continued to learn the power of git as I at one point replaced my index.html file (that previously had about me info) with the index.html from simon. I was able to backtrack and fix my mistake without git, but the assurance that git had the file the whole time reassured me.
 
 Also during Simon, I loved using one VS Code window to make my file edits for git and deployment while having another VS Code window to check the files on my server. Additionally, the quick and easy deployment made for fast checking of versions and adjustments when I messed things up.
+# Simon CSS
+During this assignment, a few bugs gave me some difficulty. CSS, although it's easy to spot the problems once the server is updated, makes it difficult to easily notice in code where the problem is. It's possible that VSCode just is not as helpful as JetBrains IDEs are or that I don't have as helpful extensions installed.
+Basically, I need to be more careful when typing out code in CSS in VSCode or find a good extension to help me.
+
+While working, I realized that having the separate file for formatting made my life way easier. When actually debugging, it was way easier to find and fix the problems compared with interdependent languages such as Java.
+
+I need to study html tags more :)
