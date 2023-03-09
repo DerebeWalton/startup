@@ -37,9 +37,8 @@ While working, I realized that having the separate file for formatting made my l
 
 I need to study html tags more :)
 
-# JavaScript
-## Basics
-Functions and output
+# JavaScript Basics
+## Functions and output
 
 function join(a, b) {
   return a + ' ' + b;
@@ -48,7 +47,7 @@ function join(a, b) {
 console.log(join('Hello', 'world'));
 // OUTPUT: Hello world
 
-Comments
+## Comments
 
 // Line comment
 
@@ -58,7 +57,56 @@ Block comment
 
 It's good form to use braces and semicolons
 
+# JS Console
+## Log
+console.log('%c JavaScript Demo', 'font-size:1.5em; color:green;');
+// OUTPUT: JavaScript Demo //in large green text
 
+## Timers
+console.time('demo time');
+// ... some code that takes a long time.
+
+console.timeEnd('demo time');
+// OUTPUT: demo time: 9762.74 ms
+
+## Count
+console.count('a');
+// OUTPUT: a: 1
+
+console.count('a');
+// OUTPUT: a: 2
+
+console.count('b');
+// OUTPUT: b: 1
+
+# Adding JavaScript to HTML
+Insert directly using <script> or referect using src attribute
+## index.js
+'''js
+function sayHello() {
+  console.log('hello');
+}
+'''
+## index.html
+'''html
+<head>
+  <script src="javascript.js"></script>
+</head>
+<body>
+  <button onclick="sayHello()">Say Hello</button>
+  <button onclick="sayGoodbye()">Say Goodbye</button>
+  <script>
+    function sayGoodbye() {
+      alert('Goodbye');
+    }
+  </script>
+</body>
+'''
+## onclick and other special attributes
+'''html
+<button onClick="let i=1;i++;console.log(i)">press me</button>
+<!-- OUTPUT: 2 -->
+'''
 
 # Midterm Review
 ## Video
