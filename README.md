@@ -592,7 +592,138 @@ console.log(a.length);
 // OUTPUT: 4
 ```
 
+# JS object and classes
+A JavaScript object represents a collection of name value pairs referred to as properties. The property name must be of type String or Symbol, but the value can be of any type. Objects also have common object-oriented functionality such as constructors, a this pointer, static properties and functions, and inheritance.
 
+Objects can be created with the new operator. This causes the object's constructor to be called. Once declared you can add properties to the object by simply referencing the property name in an assignment. Any type of variable can be assigned to a property. This includes a sub-object, array, or function. The properties of an object can be referenced either with dot (```obj.prop```) or bracket notation (```obj['prop']```).
+## Object-literals
+```object-literal``` syntax allows you to provide the initial composition of the object.
+
+```js
+const obj = {
+  a: 3,
+  b: 'fish',
+};
+```
+
+## Object functions
+Commonly used static functions:
+| Function | Meaning                             |
+| -------- | ----------------------------------- |
+| entries  | Returns an array of key value pairs |
+| keys     | Returns an array of keys            |
+| values   | Returns an array of values          |
+```js
+const obj = {
+  a: 3,
+  b: 'fish',
+};
+
+console.log(Object.entries(obj));
+// OUTPUT: [['a', 3], ['b', 'fish']]
+console.log(Object.keys(obj));
+// OUTPUT: ['a', 'b']
+console.log(Object.values(obj));
+// OUTPUT: [3, 'fish']
+```
+
+## Constructor
+Any function that returns an object is considered a ```constructor``` and can be invoked with the ```new``` operator.
+
+```js
+function Person(name) {
+  return {
+    name: name,
+  };
+}
+
+const p = new Person('Eich');
+console.log(p);
+// OUTPUT: {name: 'Eich'}
+```
+Because objects can have any type of property value you can create methods on the object as part of its encapsulation.
+
+```js
+function Person(name) {
+  return {
+    name: name,
+    log: function () {
+      console.log('My name is ' + this.name);
+    },
+  };
+}
+
+const p = new Person('Eich');
+p.log();
+// OUTPUT: My name is Eich
+```
+
+## This pointer
+Notice in the last example the use of the keyword ```this``` when we referred to the name property (```this.name```). The meaning of ```this``` depends upon the scope of where it is used, but in the context of an object it refers to a pointer to the object.
+
+## Classes
+You can use classes to define objects. Using a class clarifies the intent to create a reusable component rather than a one off object. Class declarations looks similar to declaring an object, but classes have an explicit constructor and assumed function declarations. The person object from above would look like the following when converted to a class.
+
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  log() {
+    console.log('My name is ' + this.name);
+  }
+}
+
+const p = new Person('Eich');
+p.log();
+// OUTPUT: My name is Eich
+```
+You can make properties and functions of classes private by prefixing them with a #.
+
+```js
+class Person {
+  #name;
+
+  constructor(name) {
+    this.#name = name;
+  }
+}
+
+const p = new Person('Eich');
+p.#name = 'Lie';
+// OUTPUT: Uncaught SyntaxError: Private field '#name' must be declared in an enclosing class
+```
+
+## Inheritance
+Classes can be extended by using the ```extends``` keyword to define inheritance. Parameters that need to be passed to the parent class are delivered using the ```super``` function. Any functions defined on the child that have the same name as the parent override the parent's implementation. A parent's function can be explicitly accessed using the ```super``` keyword.
+
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  print() {
+    return 'My name is ' + this.name;
+  }
+}
+
+class Employee extends Person {
+  constructor(name, position) {
+    super(name);
+    this.position = position;
+  }
+
+  print() {
+    return super.print() + '. I am a ' + this.position;
+  }
+}
+
+const e = new Employee('Eich', 'programmer');
+console.log(e.print());
+// OUTPUT: My name is Eich. I am a programmer
+```
 
 
 # Midterm Review
