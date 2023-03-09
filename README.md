@@ -756,7 +756,7 @@ JSON is always encoded with UTF-8. This allows for the representation of global 
 
 ## Converting to JavaScript
 You can convert JSON to, and from, JavaScript using the ```JSON.parse``` and ```JSON.stringify``` functions.
-```json
+```js
 const obj = { a: 2, b: 'crockford', c: undefined };
 const json = JSON.stringify(obj);
 const objFromJson = JSON.parse(json);
