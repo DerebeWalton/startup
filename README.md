@@ -91,7 +91,7 @@ console.count('b');
 ```
 
 # Adding JavaScript to HTML
-Insert directly using <script> or referect using src attribute
+Insert directly using <script> or reference using src attribute
 ## index.js
 ```js
 function sayHello() {
@@ -118,5 +118,201 @@ function sayHello() {
 <button onClick="let i=1;i++;console.log(i)">press me</button>
 <!-- OUTPUT: 2 -->
 ```
+
+# JavaScript type and construct
+## Variables
+```let``` allows for changes and ```const``` does not
+```js
+let x = 1;
+
+const y = 2;
+```
+## Primitive Types
+| Type        | Meaning                                                    |
+| ----------- | ---------------------------------------------------------- |
+| `Null`      | The type of a variable that has not been assigned a value. |
+| `Undefined` | The type of a variable that has not been defined.          |
+| `Boolean`   | true or false.                                             |
+| `Number`    | A 64 bit signed number.                                    |
+| `BigInt`    | A number of arbitrary magnitude.                           |
+| `String`    | A textual sequence of characters.                          |
+| `Symbol`    | A unique value.                                            |
+
+## Commonly used objects:
+| Type       | Use                                                                                    | Example                  |
+| ---------- | -------------------------------------------------------------------------------------- | ------------------------ |
+| `Object`   | A collection of properties represented by name value pairs. Values can be of any type. | `{a:3, b:'fish'}`        |
+| `Function` | An object that has the ability to be called.                                           | `function a() {}`        |
+| `Date`     | Calendar dates and times.                                                              | `new Date('1995-12-17')` |
+| `Array`    | An ordered sequence of any type.                                                       | `[3, 'fish']`            |
+| `Map`      | A collection of key value pairs that support efficient lookups.                        | `new Map()`              |
+| `JSON`     | A lightweight data-interchange format used to share information across programs.       | `{"a":3, "b":"fish"}`    |
+
+## Common operators
+Math operators:
+ - ```+``` add
+ - ```-``` subtract
+ - ```*``` multiply
+ - ```/``` divide
+ - ```===``` equality
+For String variables:
+ - ```+``` concatenation
+ - ```===``` equality
+
+##Type conversions
+JS is weakly typed, therefore variables can change type and can get weird
+```js
+2 + '3';
+// OUTPUT: '23'
+2 * '3';
+// OUTPUT: 6
+[2] + [3];
+// OUTPUT: '23'
+true + null;
+// OUTPUT: 1
+true + undefined;
+// OUTPUT: NaN
+```
+Weird stuff especially with ```equality``` operator
+```js
+1 == '1';
+// OUTPUT: true
+null == undefined;
+// OUTPUT: true
+'' == false;
+// OUTPUT: true
+```
+Use ```===``` and ```!==``` for strict equality and inequality
+```js
+1 === '1';
+// OUTPUT: false
+null === undefined;
+// OUTPUT: false
+'' === false;
+// OUTPUT: false
+```
+Example:
+```js
+('b' + 'a' + +'a' + 'a').toLowerCase();
+// OUTPUT: 'banana'
+```
+
+## Conditionals
+JS supports common conditional constructs, including ```if```, ```else```, and ```else if```
+```js
+if (a === 1) {
+  //...
+} else if (b === 2) {
+  //...
+} else {
+  //...
+}
+```
+Ternary operator provides compact ```else if``` representation
+```js
+a === 1 ? console.log(1) : console.log('not 1');
+```
+
+Boolean operations also supported:
+ - ```&&``` and
+ - ```||``` or
+ - ```!``` not
+
+Example:
+```js
+if (true && (!false || true)) {
+  //...
+}
+```
+
+## Loops
+### for
+
+Note the introduction of the common post increment operation (`i++`) for adding one to a number.
+
+```js
+for (let i = 0; i < 2; i++) {
+  console.log(i);
+}
+// OUTPUT: 0 1
+```
+
+### do while
+
+```js
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 2);
+// OUTPUT: 0 1
+```
+
+### while
+
+```js
+let i = 0;
+while (i < 2) {
+  console.log(i);
+  i++;
+}
+// OUTPUT: 0 1
+```
+
+### for in
+
+The `for in` statement iterates over an object's property names.
+
+```js
+const obj = { a: 1, b: 'fish' };
+for (const name in obj) {
+  console.log(name);
+}
+// OUTPUT: a
+// OUTPUT: b
+```
+
+For arrays the object's name is the array index.
+
+```js
+const arr = ['a', 'b'];
+for (const name in arr) {
+  console.log(name);
+}
+// OUTPUT: 0
+// OUTPUT: 1
+```
+
+### for of
+
+The `for of` statement iterates over an iterable's (Array, Map, Set, ...) property values.
+
+```js
+const arr = ['a', 'b'];
+for (const val of arr) {
+  console.log(val);
+}
+// OUTPUT: 'a'
+// OUTPUT: 'b'
+```
+
+### Break and continue
+
+All of the looping constructs demonstrated above allow for either a `break` or `continue` statement to abort or advance the loop.
+
+```js
+let i = 0;
+while (true) {
+  console.log(i);
+  if (i === 0) {
+    i++;
+    continue;
+  } else {
+    break;
+  }
+}
+// OUTPUT: 0 1
+```
+
 # Midterm Review
 ## Video
