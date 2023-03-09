@@ -40,6 +40,7 @@ I need to study html tags more :)
 # JavaScript
 ## Basics
 Functions and output
+
 function join(a, b) {
   return a + ' ' + b;
 }
@@ -48,7 +49,9 @@ console.log(join('Hello', 'world'));
 // OUTPUT: Hello world
 
 Comments
+
 // Line comment
+
 /*
 Block comment
 */
