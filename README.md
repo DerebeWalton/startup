@@ -356,5 +356,200 @@ console.log(s.toLowerCase());
 // OUTPUT: example:조선글
 ```
 
+# Functions
+Function begins with keyword ```function``` followed by 0 or more parameters and a body that may contain 0 or more return statements. Note: no type declarations, as the type is always inferred by the assignment of the value to the parameter.
+```js
+function hello(who) {
+  return 'hello ' + who;
+}
+
+console.log(hello('world'));
+// OUTPUT: hello world
+```
+
+Functions without return values also exist:
+```js
+function hello(who) {
+  who.count++;
+  console.log('hello ' + who.name);
+}
+
+hello({ name: 'world', count: 0 });
+// OUTPUT: hello world
+```
+
+## Funcation parameters
+If caller does not provide parameters, then the value is ```undefined``` when the function executes
+```js
+function labeler(value, title = 'title') {
+  console.log(`${title}=${value}`);
+}
+
+labeler();
+// OUTPUT: title=undefined
+
+labeler('fish');
+// OUTPUT: title=fish
+
+labeler('fish', 'animal');
+// OUTPUT: animal=fish
+```
+
+## Anonymous functions
+Functions in JavaScript are commonly assigned to a variable so that they can be passed as a parameter to some other function or stored as an object property. To easily support this common use you can define a function anonymously and assign it to a variable.
+```js
+// Function that takes a function as a parameter
+function doMath(operation, a, b) {
+  return operation(a, b);
+}
+
+// Anonymous function assigned to a variable
+const add = function (a, b) {
+  return a + b;
+};
+
+console.log(doMath(add, 5, 3));
+// OUTPUT: 8
+
+// Anonymous function assigned to a parameter
+console.log(
+  doMath(
+    function (a, b) {
+      return a - b;
+    },
+    5,
+    3
+  )
+);
+// OUTPUT: 2
+```
+
+## Creating, passing, and returning functions
+Here are examples of assigning functions to variables, as well as using functions as parameters and return values.
+```js
+// Anonymous declaration of the function that is later assigned to a variable
+const add = function (a, b) {
+  return a + b;
+};
+
+// Function that logs as a side effect of its execution
+function labeler(label, value) {
+  console.log(label + '=' + value);
+}
+
+// Function that takes a function as a parameter and then executes the function as a side effect
+function addAndLabel(labeler, label, adder, a, b) {
+  labeler(label, adder(a, b));
+}
+
+// Passing a function to a function
+addAndLabel(labeler, 'a+b', add, 1, 3);
+// OUTPUT: a+b=4
+
+// Function that returns a function
+function labelMaker(label) {
+  return function (value) {
+    console.log(label + '=' + value);
+  };
+}
+
+// Assign a function from the return value of the function
+const nameLabeler = labelMaker('name');
+
+// Calling the returned function
+nameLabeler('value');
+// OUTPUT: name=value
+```
+
+## Inner functions
+make life easier
+```js
+function labeler(value) {
+  function stringLabeler(value) {
+    console.log('string=' + value);
+  }
+  function numberLabeler(value) {
+    console.log('number=' + value);
+  }
+
+  if (typeof value == 'string') {
+    stringLabeler(value);
+  } else if (typeof value == 'number') {
+    numberLabeler(value);
+  }
+}
+
+labeler(5);
+// OUTPUT: number=5
+
+labeler('fish');
+// OUTPUT: string=fish
+```
+
+# JS arrow function
+To make the code more compact the ```arrow``` syntax was created. This syntax replaces the need for the ```function``` keyword with the symbols ```=>``` placed after the parameter declaration.
+arrow function syntax that returns 3:
+```js
+() => 3;
+```
+Sort of equivalent:
+```js
+const a = [1, 2, 3, 4];
+
+// standard function syntax
+a.sort(function (v1, v2) {
+  return v1 - v2;
+});
+
+// arrow function syntax
+a.sort((v1, v2) => v1 - v2);
+```
+## Return values
+```return``` keyword is not required unless curly braces are used
+```js
+() => 3;
+// RETURNS: 3
+
+() => {
+  3;
+};
+// RETURNS: undefined
+
+() => {
+  return 3;
+};
+// RETURNS: 3
+```
+
+## This pointer
+arrow functions inherit ```this``` pointer from creation. Makes a ```closure```, which allows a function to continue referening its creation scope, even after it has passed out of scope. More to be discussed about ```scope``` later.
+
+The function ```makeClosure``` returns an anonymous function using the arrow syntax. Notice that the ```a``` parameter is overridden, a new ```b``` variable is created, and both ```a``` and ```b``` are referenced in the arrow function. Because of that reference, they are both part of the closure for the returned function.
+```js
+function makeClosure(a) {
+  a = 'a2';
+  const b = 'b2';
+  return () => [a, b];
+}
+```
+Next, we declare the variables ```a``` and ```b``` at the top level scope, and call ```makeClosure``` with ```a```.
+```js
+const a = 'a';
+const b = 'b';
+
+const closure = makeClosure(a);
+```
+Now, when we call ```closure``` function it will output the values contained in scope where it was created instead of the current values of the variables.
+```js
+console.log(closure());
+// OUTPUT: ['a2', 'b2']
+
+console.log(a, b);
+// OUTPUT: 'a' 'b'
+```
+Closures provide a valuable property when we do things like execute JavaScript within the scope of an HTML page, because it can remember the values of variables when the function was created instead of what they are when they are executed.
+
+
+
 # Midterm Review
 ## Video
