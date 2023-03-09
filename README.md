@@ -40,18 +40,18 @@ I need to study html tags more :)
 # JavaScript
 ## Basics
 Functions and output
-  function join(a, b) {
-    return a + ' ' + b;
-  }
+function join(a, b) {
+  return a + ' ' + b;
+}
 
-  console.log(join('Hello', 'world'));
-    // OUTPUT: Hello world
+console.log(join('Hello', 'world'));
+// OUTPUT: Hello world
 
 Comments
-  // Line comment
-  /*
-  Block comment
-  */
+// Line comment
+/*
+Block comment
+*/
 
 It's good form to use braces and semicolons
 
