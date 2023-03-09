@@ -36,3 +36,26 @@ Basically, I need to be more careful when typing out code in CSS in VSCode or fi
 While working, I realized that having the separate file for formatting made my life way easier. When actually debugging, it was way easier to find and fix the problems compared with interdependent languages such as Java.
 
 I need to study html tags more :)
+
+# JavaScript
+## Basics
+###Functions and output
+  function join(a, b) {
+    return a + ' ' + b;
+  }
+
+  console.log(join('Hello', 'world'));
+  // OUTPUT: Hello world
+
+###Comments
+  // Line comment
+  /*
+  Block comment
+  */
+
+It's good form to use braces and semicolons
+
+
+
+# Midterm Review
+## Video
