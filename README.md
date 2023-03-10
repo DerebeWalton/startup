@@ -1548,3 +1548,14 @@ This gives you complete control to inspect what the JavaScript code is doing and
 
 # Midterm Review
 ## Video
+ - you can use this CSS to load fonts from google:
+```@import url('https://fonts.googleapis.com/css?family=Quicksand')
+ - CSS property padding puts space around the content of selected elements
+ - In HTML, <div> creates a division element
+ - Order of CSS box model, starting outside going in is margin, border, padding, content
+ - unordered list in HTML is <ul>
+ - { n:1 } is a valid JS object
+ - DOM textContent sets the child text for the an element
+ - {"x":3} is valid JSON
+ - this console command makes a script executable: ```chmod +x deploy.sh```
+ - to point to another DNS record, you should use CNAME
