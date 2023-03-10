@@ -1553,7 +1553,7 @@ This gives you complete control to inspect what the JavaScript code is doing and
  - CSS property padding puts space around the content of selected elements
  - In HTML, <div> creates a division element
  - Order of CSS box model, starting outside going in is margin, border, padding, content
- - unordered list in HTML is <ul>
+ - unordered list in HTML is ```<ul>```
  - { n:1 } is a valid JS object
  - DOM textContent sets the child text for the an element
  - {"x":3} is valid JSON
